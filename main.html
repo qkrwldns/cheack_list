@@ -21,7 +21,7 @@
       }
 
       body .container {
-        flex-grow: 1; /* This will make the container take up all available space */
+        flex-grow: 1; 
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -30,23 +30,22 @@
         max-width: 800px;
         box-sizing: border-box;
         padding: 10px;
-        margin: auto; /* Ensures it remains centered horizontally */
+        margin: auto; 
       }
       fieldset legend label {
         display: flex;
-        justify-content: space-between; /* Aligns checkbox and text to the left and "완료" to the right */
-        align-items: center; /* Centers items vertically */
-        width: 100%; /* Ensures label takes full width */
+        justify-content: space-between; 
+        align-items: center; 
+        width: 100%; 
       }
 
       .complete {
-        display: none; /* Hidden by default */
-        color: red;
-        margin-left: auto; /* Pushes to the far right */
+        display: none; 
+        margin-left: auto; 
       }
 
       input[type="checkbox"]:checked + .complete {
-        display: inline-block; /* Adjust as necessary */
+        display: inline-block; 
         position: absolute;
         right: 500px;
       }
@@ -90,28 +89,28 @@
             margin-left: 100px;
         }
         input[type="checkbox"]:checked + .complete {
-          display: inline-block; /* Adjust as necessary */
+          display: inline-block; 
           position: absolute;
           right: 700px;
         }
       }
       @media screen and (max-width: 1800px) {
          
-        /* Adjustments for smaller screens */
+        
         fieldset {
-          width: 90%; /* Narrower fieldsets on smaller screens */
+          width: 90%; 
         }
         .container {
-          padding: 20px; /* Increased padding on smaller screens */
+          padding: 20px; 
         }
         fieldset legend label {
-          flex-direction: column; /* Stack checkbox and completion vertically */
-          align-items: flex-start; /* Align items to the start of the label */
+          flex-direction: column; 
+          align-items: flex-start; 
         }
         input[type="checkbox"]:checked + .complete {
           position: relative;
-          right: 0; /* Reset position */
-          margin-top: 10px; /* Provide some space between checkbox and completion text */
+          right: 0; 
+          margin-top: 10px; 
         }
       }
     </style>
@@ -221,7 +220,7 @@
           </fieldset>
         </div>
         <div id="checklist2" class="hidden">
-          <!-- Checkboxes for Sunday -->
+        
           <fieldset>
             <legend>오자마자 할 것</legend>
             <label>
@@ -318,7 +317,6 @@
           <button onclick="hideModal()">Close</button>
         </menu>
       </dialog>
-      <!-- Reset Button -->
       <button id="resetButton" class="hidden" onclick="resetCheckboxes()">
         Reset Checkboxes
       </button>
@@ -336,7 +334,6 @@
         document.getElementById("checklist2").classList.remove("hidden");
       });
 
-      // Check if all checkboxes in the visible checklist are checked
       function checkChecklist(checklistId) {
         let checklist = document.getElementById(checklistId);
         let checkboxes = checklist.querySelectorAll(
@@ -350,7 +347,6 @@
         }
       }
 
-      // Event listener for checkbox changes
       document
         .querySelectorAll(
           '#checklist1 input[type="checkbox"], #checklist2 input[type="checkbox"]'
@@ -363,24 +359,21 @@
           });
         });
 
-      // Show modal
       function showModal() {
         document.getElementById("modal").showModal();
       }
-      // Close modal and show reset button
       function hideModal() {
         document.getElementById("modal").close();
-        document.getElementById("resetButton").classList.remove("hidden"); // Show the reset button
+        document.getElementById("resetButton").classList.remove("hidden"); 
       }
 
-      // Reset all checkboxes and hide reset button
       function resetCheckboxes() {
         document
           .querySelectorAll('#checklist input[type="checkbox"]')
           .forEach((checkbox) => {
             checkbox.checked = false;
           });
-        document.getElementById("resetButton").classList.add("hidden"); // Hide the reset button
+        document.getElementById("resetButton").classList.add("hidden"); 
       }
     </script>
   </body>
